@@ -12,7 +12,7 @@ cursor.execute('''
                product TEXT,
                category TEXT,
                quantity INTEGER,
-               price REAL,)
+               price REAL)
                ''')
 
 # Insert sample data into the sales table
@@ -28,7 +28,7 @@ sample_data = [('2023-01-01', 'Product A', 'Category 1', 10, 15.99),
                ('2023-01-10', 'Product C', 'Category 3', 5, 10.00)]
 
 # Insert sample data into the sales table
-cursor.executemany('''INSERT INTO sales_data (date, product, category, quantity, price) Values (?, ?, ?, ?, ?)''', sample_data)
+cursor.executemany('''INSERT INTO sales (date, product, category, quantity, price) Values (?, ?, ?, ?, ?)''', sample_data)
 # Commit the changes to the database
 conn.commit()
 # Query to get total sales for each product
