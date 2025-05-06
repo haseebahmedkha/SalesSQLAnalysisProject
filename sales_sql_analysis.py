@@ -42,6 +42,8 @@ print(columns_df)
 print("\n====================")
 
 
+
+
 #performing analysis on the sales table
 print("Sales data analysis as per products")
 query = "select name, sum(quantity) as total_sale from products group by name  order by total_sale desc limit 5"
@@ -60,6 +62,20 @@ plt.ylabel('Quantity of Products')
 plt.tight_layout()
 plt.savefig('quantity_in_stock_per_product.png')
 plt.show()
+
+
+# Analyzing the sales data using Pie Chart (Product Category)
+query = "select name, count(*) as count from products group by name;"
+df = pd.read_sql(query, engine)
+
+#Shows data on Pie Chart
+plt.figure(figsize=(8, 8))
+plt.pie(df['count'], labels=df['name'], autopct='%1.1f%%', startangle=140)
+plt.title('Product Category Distribution')
+plt.tight_layout()
+plt.savefig('product_category_distribution.png')
+plt.show()
+plt.close()
 
 
 
