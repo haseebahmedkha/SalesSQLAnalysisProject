@@ -79,6 +79,23 @@ plt.close()
 
 
 
+#Scatter plot for Price and Quantity
+query = "select name,price, quantity from products;"
+df = pd.read_sql(query, engine)
+
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='price', y='quantity', data=df, hue='name')
+plt.title('Price vs Quantity of Products')
+plt.xlabel('Price')
+plt.ylabel('Quantity')
+plt.tight_layout()
+plt.savefig('price_vs_quantity.png')
+plt.show()
+plt.close()
+
+
+
 
 
 
